@@ -1,11 +1,12 @@
 import React from 'react';
-import { View, StyleSheet,Image, Text } from 'react-native';
+import { View, StyleSheet,Image, Text, FlatList } from 'react-native';
 import Svg, {
     Path, Rect,
   } from 'react-native-svg';
   
+  import profiles from '../../mocks/profiles';
 
-export default function StatusAvatar({profiles}) {
+export default function StatusAvatar() {
 
 console.log('profileeeeeee', profiles)
   function myArc(cx, cy, radius, max){
@@ -21,16 +22,16 @@ console.log('profileeeeeee', profiles)
     return d;
   }
 
-  const amount = [...Array(2).keys()];
+  const amount = [...Array(Math.floor(Math.random() * Math.floor(5))).keys()];
   const dd = myArc(35, 35, 30, parseInt(360/amount.length) == 360 ? 360 : parseInt(360/amount.length)-4)
-  console.log('gggggggg', profiles);
 
-  const getPicture = (profile, index) => {
+  const getPicture = (profile) => {
     return (
+      amount.map((item, index) => (
       <View
         style={{position:'absolute', justifyContent: 'center', alignItems: "center"}}
         key={index}
-      > 
+      >
       <Svg width="70" height="70">
         <Path
           d={dd}
@@ -41,21 +42,25 @@ console.log('profileeeeeee', profiles)
         />
       </Svg>
       <Image 
-        source={{uri: profile.picture.large}} 
+        source={{uri: profile.picture}} 
         style={{width: 55, height: 55, position: 'absolute', borderRadius: 50}}
       />
-    </View>
+    </View>))
     )
   }
   return (
     <View>
-      {profiles.map((profile, profileIndex) => {
-      {return (
-        <View key={profileIndex} style={{position: 'absolute', top: 100 * profileIndex}}>
-          {amount.map((item, index) =>  getPicture(profile, index))}
-      </View>
-        )}
-    })}
+      <FlatList
+        data={profiles}
+        renderItem={((profile, profileIndex)=> (
+          <View key={profile.item.id} style={{minHeight: 100, justifyContent: 'center'}}>
+            {getPicture(profile.item)}
+            <Text style={{marginLeft: 80}}>{profile.item.name}</Text>
+          </View>
+        ))}
+        keyExtractor={item => item.id + '-id'}
+      />
+     
     </View>
   )
 }
