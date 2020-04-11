@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { View, StyleSheet,Image, Text } from 'react-native';
+import { View, ScrollView, StyleSheet,Image, Text } from 'react-native';
 
 import StatusAvatar from '../../components/StatusItem';
 import route from '../../routes';
@@ -7,6 +7,6 @@ import route from '../../routes';
 export default function Status() {
 
   return (
-    <View><StatusAvatar /></View>
+    <StatusAvatar/>
   );
 }

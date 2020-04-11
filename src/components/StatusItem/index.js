@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet,Image, Text, FlatList } from 'react-native';
+import { View, StyleSheet,Image, Text, FlatList, ScrollView } from 'react-native';
 import Svg, {
     Path, Rect,
   } from 'react-native-svg';
@@ -8,7 +8,6 @@ import Svg, {
 
 export default function StatusAvatar() {
 
-console.log('profileeeeeee', profiles)
   function myArc(cx, cy, radius, max){
     var d = " M "+ (cx + radius) + " " + cy;
     let ang = 0;
@@ -22,162 +21,112 @@ console.log('profileeeeeee', profiles)
     return d;
   }
 
-  const amount = [...Array(Math.floor(Math.random() * Math.floor(5))).keys()];
-  const dd = myArc(35, 35, 30, parseInt(360/amount.length) == 360 ? 360 : parseInt(360/amount.length)-4)
+  const dd = (amount) => myArc(35, 35, 30, parseInt(360/amount.length) == 360 ? 360 : parseInt(360/amount.length)-4)
 
   const getPicture = (profile) => {
+    const posts = profile.posts;
     return (
-      amount.map((item, index) => (
+      posts.map((item, index) => (
       <View
         style={{position:'absolute', justifyContent: 'center', alignItems: "center"}}
         key={index}
       >
       <Svg width="70" height="70">
         <Path
-          d={dd}
+          d={dd(posts)}
           fill="none"
-          stroke="#00BFA5"
+          stroke={profile.viewedAmount > index ? '#00BFA5' : '#b5b5b5'}
           strokeWidth={2}
-          transform={{ rotation: (360/amount.length*index+1) + 270, originX: 35, originY: 35 }}
+          transform={{ rotation: (360/posts.length*index+1) + 270, originX: 35, originY: 35 }}
         />
       </Svg>
-      <Image 
-        source={{uri: profile.picture}} 
-        style={{width: 55, height: 55, position: 'absolute', borderRadius: 50}}
-      />
+      
     </View>))
     )
   }
   return (
     <View>
-      <FlatList
-        data={profiles}
-        renderItem={((profile, profileIndex)=> (
-          <View key={profile.item.id} style={{minHeight: 100, justifyContent: 'center'}}>
-            {getPicture(profile.item)}
-            <Text style={{marginLeft: 80}}>{profile.item.name}</Text>
+      <ScrollView>
+        <View style={{justifyContent: 'center', height: 80, flexDirection: 'row', justifyContent: 'flex-start', alignItems: "center"}}>
+          <Image
+            source={{uri: profiles[0].picture}}
+            style={{width: 55, height: 55,  borderRadius: 50, left: 7.5}}
+          />
+          <View style={{marginLeft: 25}}>
+            <Text style={{fontWeight: 'bold', color: '#545454'}}>Meu status</Text>
+            <Text style={{color: '#b5b5b5'}}>Toque para atualizar seu status</Text>
           </View>
-        ))}
-        keyExtractor={item => item.id + '-id'}
-      />
-     
-    </View>
+        </View>
+        <Text style={{backgroundColor: '#e3e3e3', color: '#696969', paddingVertical: 10, paddingHorizontal: 8}}>Atualizações recentes</Text>
+        {profiles.map((profile, profileIndex)=> (
+            <View key={profile.id} style={{minHeight: 100, justifyContent: 'center'}}>
+              {getPicture(profile)}
+              <Image
+                source={{uri: profile.posts[0]}} 
+                style={{width: 55, height: 55, position: 'absolute', borderRadius: 50, left: 7.5}}
+              />
+              <Text style={{marginLeft: 80, fontWeight: 'bold', color: '#545454'}}>{profile.name}</Text>
+              <Text style={{marginLeft: 80, color: '#b5b5b5'}}>Há 23 minutos</Text>
+              <View
+                style={{
+                  borderWidth: 0.5,
+                  borderColor:'#b5b5b5',
+                  width: '80%',
+                  position: 'relative',
+                  top: 25,
+                  left: '20%',
+                }}
+              />
+            </View>
+          ))}
+      </ScrollView>
+      <View style={{flex: 1}}>
+      <View><Text>my text</Text></View>
+      <View style={{
+        position: 'absolute', 
+        right: 10, 
+        bottom: 10,
+        backgroundColor: '#25d366',
+        height: 70,
+        width: 70,
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'center'
+        }}><Text>edit</Text></View>
+
+
+      <View style={{
+        position: 'absolute', 
+        right: 15, 
+        bottom: 100,
+        backgroundColor: '#edf7f7',
+        shadowColor: "#000",
+        shadowOffset: {
+          width: 0,
+          height: 2,
+        },
+        shadowOpacity: 0.25,
+        shadowRadius: 3.84,
+
+        elevation: 5,
+        height: 60,
+        width: 60,
+        borderRadius: 50,
+        alignItems: 'center',
+        justifyContent: 'center'
+        }}><Text>photo</Text></View>
+      </View>
+      </View>
   )
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// {profiles.map(profile => (
-//   <View>
-//     <View style={{position: 'relative'}}>
-//       <View
-//           style={{position:'absolute', justifyContent: 'center', alignItems: "center"}}
-//           key={item}
-//         > 
-//         <Svg width="70" height="70">
-//           <Path
-//             d={dd}
-//             fill="none"
-//             stroke="#00BFA5"
-//             strokeWidth={2}
-//             transform={{ rotation: (360/amount.length*index+1) + 270, originX: 35, originY: 35 }}
-//           />
-//         </Svg>
-//         <Image 
-//           source={{uri: profile.picture.large}} 
-//           style={{width: 55, height: 55, position: 'absolute', borderRadius: 50}}
-//         />
-//       </View>
-//     </View>
-//     <View>
-//       <View
-//         style={{position:'absolute', justifyContent: 'center', alignItems: "center", left: 100}}
-//         key={item}
-//         > 
-//         <Svg width="70" height="70">
-//           <Path
-//             d={dd}
-//             fill="none"
-//             stroke="#00BFA5"
-//             strokeWidth={2}
-//             transform={{ rotation: (360/amount.length*index+1) + 270, originX: 35, originY: 35 }}
-//           />
-//         </Svg>
-//         <Image 
-//           source={{uri: profile.picture.large}} 
-//           style={{width: 55, height: 55, position: 'absolute', borderRadius: 50}}
-//         />
-//       </View>
-//       </View>
-    
-// </View>
-// ))}            {profiles.map(profile => (
-//   <View>
-//     <View style={{position: 'relative'}}>
-//       <View
-//           style={{position:'absolute', justifyContent: 'center', alignItems: "center"}}
-//           key={item}
-//         > 
-//         <Svg width="70" height="70">
-//           <Path
-//             d={dd}
-//             fill="none"
-//             stroke="#00BFA5"
-//             strokeWidth={2}
-//             transform={{ rotation: (360/amount.length*index+1) + 270, originX: 35, originY: 35 }}
-//           />
-//         </Svg>
-//         <Image 
-//           source={{uri: profile.picture.large}} 
-//           style={{width: 55, height: 55, position: 'absolute', borderRadius: 50}}
-//         />
-//       </View>
-//     </View>
-//     <View>
-//       <View
-//         style={{position:'absolute', justifyContent: 'center', alignItems: "center", left: 100}}
-//         key={item}
-//         > 
-//         <Svg width="70" height="70">
-//           <Path
-//             d={dd}
-//             fill="none"
-//             stroke="#00BFA5"
-//             strokeWidth={2}
-//             transform={{ rotation: (360/amount.length*index+1) + 270, originX: 35, originY: 35 }}
-//           />
-//         </Svg>
-//         <Image 
-//           source={{uri: profile.picture.large}} 
-//           style={{width: 55, height: 55, position: 'absolute', borderRadius: 50}}
-//         />
-//       </View>
-//       </View>
-    
-// </View>
-// ))}
