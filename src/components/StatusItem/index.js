@@ -16,10 +16,23 @@ export default function StatusAvatar() {
             justifyContent: 'flex-start',
             alignItems: 'center',
           }}>
-          <Image
-            source={{uri: profiles[0].picture}}
-            style={{width: 55, height: 55, borderRadius: 50, left: 7.5}}
-          />
+          <View>
+            <Image
+              source={{uri: profiles[0].picture}}
+              style={{width: 55, height: 55, borderRadius: 50, left: 7.5}}
+            />
+            <View
+              style={{
+                position: 'absolute',
+                right: -12,
+                top: '40%',
+                backgroundColor: 'green',
+                padding: 5,
+                borderRadius: 50,
+              }}>
+              <Icon name="plus" color="white" size={15} />
+            </View>
+          </View>
           <View style={{marginLeft: 25}}>
             <Text style={{fontWeight: 'bold', color: '#545454'}}>
               Meu status
