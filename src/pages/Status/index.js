@@ -1,9 +1,11 @@
-import React, {useEffect, useState} from 'react';
-import {View, ScrollView, StyleSheet, Image, Text} from 'react-native';
-
+import React from 'react';
 import StatusAvatar from '../../components/StatusItem';
-import route from '../../routes';
-
+import StatusButtons from '../../components/StatusButtons';
 export default function Status() {
-  return <StatusAvatar />;
+  return (
+    <>
+      <StatusAvatar />
+      <StatusButtons />
+    </>
+  );
 }
