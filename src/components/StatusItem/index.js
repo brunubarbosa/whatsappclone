@@ -30,7 +30,7 @@ export default function StatusAvatar() {
                 padding: 5,
                 borderRadius: 50,
               }}>
-              <Icon name="plus" color="white" size={15} />
+              <Icon name="plus" color="white" size={13} />
             </View>
           </View>
           <View style={{marginLeft: 25}}>
