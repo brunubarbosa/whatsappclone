@@ -9,7 +9,7 @@ export const profiles = [
       'https://i.picsum.photos/id/2/380/600.jpg',
       'https://i.picsum.photos/id/4/380/600.jpg',
       'https://i.picsum.photos/id/5/380/600.jpg',
-    ]
+    ],
   },
   {
     id: 2,
@@ -20,16 +20,14 @@ export const profiles = [
       'https://i.picsum.photos/id/9/380/600.jpg',
       'https://i.picsum.photos/id/11/380/600.jpg',
       'https://i.picsum.photos/id/12/380/600.jpg',
-    ]
+    ],
   },
   {
     id: 3,
     picture: 'https://randomuser.me/api/portraits/women/74.jpg',
     name: 'Flávia Gonçalves',
     viewedAmount: 2,
-    posts: [
-      'https://i.picsum.photos/id/14/380/600.jpg',
-    ]
+    posts: ['https://i.picsum.photos/id/14/380/600.jpg'],
   },
   {
     id: 4,
@@ -41,7 +39,7 @@ export const profiles = [
       'https://i.picsum.photos/id/21/380/600.jpg',
       'https://i.picsum.photos/id/23/380/600.jpg',
       'https://i.picsum.photos/id/24/380/600.jpg',
-    ]
+    ],
   },
   {
     id: 5,
@@ -53,7 +51,7 @@ export const profiles = [
       'https://i.picsum.photos/id/28/380/600.jpg',
       'https://i.picsum.photos/id/29/380/600.jpg',
       'https://i.picsum.photos/id/30/380/600.jpg',
-    ]
+    ],
   },
   {
     id: 6,
@@ -64,16 +62,14 @@ export const profiles = [
       'https://i.picsum.photos/id/32/380/600.jpg',
       'https://i.picsum.photos/id/33/380/600.jpg',
       'https://i.picsum.photos/id/36/380/600.jpg',
-    ]
+    ],
   },
   {
     id: 7,
     picture: 'https://randomuser.me/api/portraits/men/70.jpg',
     name: 'Giovanni Souza',
     viewedAmount: 2,
-    posts: [
-      'https://i.picsum.photos/id/37/380/600.jpg',
-    ]
+    posts: ['https://i.picsum.photos/id/37/380/600.jpg'],
   },
   {
     id: 8,
@@ -85,7 +81,7 @@ export const profiles = [
       'https://i.picsum.photos/id/44/380/600.jpg',
       'https://i.picsum.photos/id/47/380/600.jpg',
       'https://i.picsum.photos/id/48/380/600.jpg',
-    ]
+    ],
   },
   {
     id: 9,
@@ -96,7 +92,7 @@ export const profiles = [
       'https://i.picsum.photos/id/49/380/600.jpg',
       'https://i.picsum.photos/id/50/380/600.jpg',
       'https://i.picsum.photos/id/54/380/600.jpg',
-    ]
+    ],
   },
   {
     id: 10,
@@ -108,7 +104,7 @@ export const profiles = [
       'https://i.picsum.photos/id/58/380/600.jpg',
       'https://i.picsum.photos/id/59/380/600.jpg',
       'https://i.picsum.photos/id/60/380/600.jpg',
-    ]
+    ],
   },
   {
     id: 11,
@@ -120,7 +116,7 @@ export const profiles = [
       'https://i.picsum.photos/id/64/380/600.jpg',
       'https://i.picsum.photos/id/65/380/600.jpg',
       'https://i.picsum.photos/id/66/380/600.jpg',
-    ]
+    ],
   },
   {
     id: 12,
@@ -134,7 +130,7 @@ export const profiles = [
       'https://i.picsum.photos/id/70/380/600.jpg',
       'https://i.picsum.photos/id/71/380/600.jpg',
       'https://i.picsum.photos/id/72/380/600.jpg',
-    ]
+    ],
   },
   {
     id: 13,
@@ -148,7 +144,7 @@ export const profiles = [
       'https://i.picsum.photos/id/76/380/600.jpg',
       'https://i.picsum.photos/id/77/380/600.jpg',
       'https://i.picsum.photos/id/78/380/600.jpg',
-    ]
+    ],
   },
   {
     id: 14,
@@ -162,7 +158,7 @@ export const profiles = [
       'https://i.picsum.photos/id/82/380/600.jpg',
       'https://i.picsum.photos/id/83/380/600.jpg',
       'https://i.picsum.photos/id/84/380/600.jpg',
-    ]
+    ],
   },
   {
     id: 15,
@@ -176,9 +172,8 @@ export const profiles = [
       'https://i.picsum.photos/id/88/380/600.jpg',
       'https://i.picsum.photos/id/89/380/600.jpg',
       'https://i.picsum.photos/id/90/380/600.jpg',
-    ]
+    ],
   },
-]
+];
 
 export default profiles;
-

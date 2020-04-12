@@ -1,0 +1,155 @@
+{
+  "env": {
+    "browser": true,
+    "jest/globals": true
+  },
+  "parser": "@typescript-eslint/parser",
+  "plugins": [
+    "import",
+    "react",
+    "jest",
+    "jsx-a11y",
+    "react-hooks",
+    "eslint-plugin-prettier",
+    "prettier"
+  ],
+  "extends": [
+    "airbnb",
+    "plugin:import/errors",
+    "plugin:import/warnings",
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:jsx-a11y/recommended",
+    "plugin:@typescript-eslint/recommended",
+    "prettier/@typescript-eslint",
+    "plugin:prettier/recommended"
+  ],
+  "parserOptions": {
+    "ecmaVersion": 2018,
+    "sourceType": "module",
+    "ecmaFeatures": {
+      "jsx": true // Allows for the parsing of JSX
+    }
+  },
+  "rules": {
+    "react/jsx-props-no-spreading": 0,
+    "react-hooks/rules-of-hooks": "error",
+    "react-hooks/exhaustive-deps": "warn",
+    "curly": [2, "multi-line"],
+    "no-confusing-arrow": 0,
+    "max-len": 0,
+    "no-mixed-operators": 0,
+    "no-tabs": 2,
+    "class-methods-use-this": 0,
+    "no-class-assign": 0,
+    "no-unused-vars": 2,
+    "no-undef": 2,
+    "no-underscore-dangle": 0,
+    "no-shadow": 0,
+    "object-curly-spacing": [0, "always"],
+    "arrow-parens": [1, "as-needed"],
+
+    "react/jsx-indent-props": 0,
+    "react/prefer-stateless-function": 0,
+    "react/prop-types": 0,
+    "react/forbid-prop-types": 2,
+    "react/jsx-filename-extension": 0,
+    "react/button-has-type": 0,
+    "react/jsx-closing-bracket-location": 1,
+    "react/no-multi-comp": 2,
+    "react/sort-comp": 1,
+    "react/no-danger": 0,
+    "react/jsx-indent": [2, 2],
+    "react/destructuring-assignment": [0, "never"],
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-wrap-multilines": 0,
+    "spaced-comment": [
+      "error",
+      "always",
+      {
+        "markers": ["/"]
+      }
+    ],
+    "triple-slash-reference": 0,
+
+    "jsx-a11y/href-no-hash": "off",
+    "jsx-a11y/anchor-is-valid": [
+      "warn",
+      {
+        "aspects": ["invalidHref"]
+      }
+    ],
+    "jsx-a11y/label-has-for": [
+      2,
+      {
+        "components": ["Label"],
+        "required": {
+          "every": ["id"]
+        },
+        "allowChildren": false
+      }
+    ],
+    "import/no-unresolved": [
+      0,
+      {
+        "commonjs": true,
+        "amd": true
+      }
+    ],
+    "import/named": 2,
+    "import/extensions": 0,
+    "import/namespace": 2,
+    "import/default": 0,
+    "import/prefer-default-export": 0,
+    "import/export": 2,
+    "import/no-extraneous-dependencies": [
+      2,
+      {
+        "devDependencies": true,
+        "optionalDependencies": false,
+        "peerDependencies": false
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": "**/*.{stories,test}.tsx",
+      "rules": {
+        "react/no-multi-comp": 0,
+        "object-curly-newline": 0,
+        "react/jsx-props-no-spreading": 1
+      }
+    }
+  ],
+  "globals": {
+    "after": false,
+    "afterEach": false,
+    "before": false,
+    "beforeEach": false,
+    "describe": false,
+    "it": false,
+    "require": false,
+    "Iugu": true,
+    "pipz": false,
+    "dataLayer": false,
+    "cy": false
+  },
+  "settings": {
+    "react": {
+      "version": "detect"
+    },
+    "import/ignore": [
+      "node_modules",
+      "\\.svg$",
+      "\\.png",
+      "\\.jpeg",
+      "\\.jpg",
+      "\\.json$"
+    ],
+    "import/parser": "babel-eslint",
+    "import/resolve": {
+      "extensions": [".js", ".jsx", ".json", ".es6"]
+    },
+    "import/resolver": "node"
+  }
+}
