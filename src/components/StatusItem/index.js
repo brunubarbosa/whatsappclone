@@ -1,13 +1,5 @@
 import React from 'react';
-import {
-  View,
-  StyleSheet,
-  Image,
-  Text,
-  FlatList,
-  ScrollView,
-} from 'react-native';
-import Svg, {Path, Rect} from 'react-native-svg';
+import {View, Image, Text, ScrollView} from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import profiles from '../../mocks/profiles';
 import getStatusRings from '../../utils/statusRings';
