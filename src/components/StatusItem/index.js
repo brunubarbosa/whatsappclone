@@ -10,57 +10,9 @@ import {
 import Svg, {Path, Rect} from 'react-native-svg';
 import Icon from 'react-native-vector-icons/FontAwesome5';
 import profiles from '../../mocks/profiles';
+import getStatusRings from '../../utils/statusRings';
 
 export default function StatusAvatar() {
-  function myArc(cx, cy, radius, max) {
-    var d = ' M ' + (cx + radius) + ' ' + cy;
-    let ang = 0;
-    while (ang <= max) {
-      var radians = ang * (Math.PI / 180); // convert degree to radians
-      var x = cx + Math.cos(radians) * radius;
-      var y = cy + Math.sin(radians) * radius;
-      d += ' L ' + x + ' ' + y;
-      ang++;
-    }
-    return d;
-  }
-
-  const dd = (amount) =>
-    myArc(
-      35,
-      35,
-      30,
-      parseInt(360 / amount.length) == 360
-        ? 360
-        : parseInt(360 / amount.length) - 4,
-    );
-
-  const getPicture = (profile) => {
-    const posts = profile.posts;
-    return posts.map((item, index) => (
-      <View
-        style={{
-          position: 'absolute',
-          justifyContent: 'center',
-          alignItems: 'center',
-        }}
-        key={index}>
-        <Svg width="70" height="70">
-          <Path
-            d={dd(posts)}
-            fill="none"
-            stroke={profile.viewedAmount > index ? '#b5b5b5' : '#00BFA5'}
-            strokeWidth={2}
-            transform={{
-              rotation: (360 / posts.length) * index + 1 + 270,
-              originX: 35,
-              originY: 35,
-            }}
-          />
-        </Svg>
-      </View>
-    ));
-  };
   return (
     <View>
       <ScrollView>
@@ -98,7 +50,7 @@ export default function StatusAvatar() {
           <View
             key={profile.id}
             style={{minHeight: 100, justifyContent: 'center'}}>
-            {getPicture(profile)}
+            {getStatusRings(profile)}
             <Image
               source={{uri: profile.posts[0]}}
               style={{
