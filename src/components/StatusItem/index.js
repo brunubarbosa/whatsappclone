@@ -26,7 +26,7 @@ export default function StatusAvatar() {
                 position: 'absolute',
                 right: -12,
                 top: '40%',
-                backgroundColor: 'green',
+                backgroundColor: '#56e04f',
                 padding: 5,
                 borderRadius: 50,
               }}>
@@ -86,11 +86,6 @@ export default function StatusAvatar() {
           </View>
         ))}
       </ScrollView>
-      <View style={{flex: 1}}>
-        <View>
-          <Text>my text</Text>
-        </View>
-      </View>
     </View>
   );
 }
