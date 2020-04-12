@@ -3,7 +3,7 @@ import { View, StyleSheet,Image, Text, FlatList, ScrollView } from 'react-native
 import Svg, {
     Path, Rect,
   } from 'react-native-svg';
-  
+  import Icon from 'react-native-vector-icons/FontAwesome5';
   import profiles from '../../mocks/profiles';
 
 export default function StatusAvatar() {
@@ -35,7 +35,7 @@ export default function StatusAvatar() {
         <Path
           d={dd(posts)}
           fill="none"
-          stroke={profile.viewedAmount > index ? '#00BFA5' : '#b5b5b5'}
+          stroke={profile.viewedAmount > index ? '#b5b5b5' : '#00BFA5'}
           strokeWidth={2}
           transform={{ rotation: (360/posts.length*index+1) + 270, originX: 35, originY: 35 }}
         />
@@ -101,7 +101,7 @@ export default function StatusAvatar() {
         borderRadius: 50,
         alignItems: 'center',
         justifyContent: 'center'
-        }}><Text>edit</Text></View>
+        }}><Icon name="camera" color="white" size={25} /></View>
 
 
       <View style={{
@@ -118,12 +118,12 @@ export default function StatusAvatar() {
         shadowRadius: 3.84,
 
         elevation: 5,
-        height: 60,
-        width: 60,
+        height: 50,
+        width: 50,
         borderRadius: 50,
         alignItems: 'center',
         justifyContent: 'center'
-        }}><Text>photo</Text></View>
+        }}><Icon name="pencil-alt" color="#919191" size={25} /></View>
       </View>
       </View>
   )
